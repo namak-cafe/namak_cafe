@@ -2,8 +2,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>نمک کافه</title>
-<style>
+<title>کافه نمک</title><style>
 body{
 font-family:tahoma,sans-serif;
 background:#f8f2e8;
@@ -40,14 +39,19 @@ border-radius:10px;
 font-size:16px;
 cursor:pointer;
 }
-</style>
-</head>
-<body><div class="container">
-<h1>☕ نمک کافه</h1><label>نام مهمان *</label>
-<input type="text" required>
+#result{
+display:none;
+margin-top:20px;
+padding:15px;
+background:#e8f5e9;
+border-radius:10px;
+text-align:center;
+}
+</style></head><body><div class="container"><h1>☕ کافه نمک</h1><form id="orderForm"><label>نام مهمان *</label>
+<input id="name" type="text" required>
 
 <label>نوشیدنی *</label>
-<select required>
+<select id="drink" required>
 
 <option>آیس لاته</option>
 <option>آمریکانو</option>
@@ -59,11 +63,45 @@ cursor:pointer;
 <option>آب جوش</option>
 <option>لانگ بلک</option>
 </select><label>تعداد *</label>
-<input type="number" min="1" value="1">
+<input id="count" type="number" min="1" value="1" required>
 
 <label>توضیحات</label>
 
-<textarea rows="4"></textarea><button>ثبت سفارش</button>
+<textarea id="note" rows="4"></textarea><button type="submit">ثبت سفارش</button>
 
-</div></body>
+</form><div id="result">
+☕ سفارش شما ثبت شد<br><br>
+میزبان به‌زودی نوشیدنی شما را آماده می‌کند.<br><br>
+از حضور شما در کافه نمک سپاسگزاریم 🌿
+</div></div><script>
+document.getElementById("orderForm").addEventListener("submit", async function(e){
+e.preventDefault();
+
+const data = {
+name: document.getElementById("name").value,
+drink: document.getElementById("drink").value,
+count: document.getElementById("count").value,
+note: document.getElementById("note").value
+};
+
+try{
+const res = await fetch("/.netlify/functions/send-order",{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify(data)
+});
+
+if(res.ok){
+document.getElementById("orderForm").style.display="none";
+document.getElementById("result").style.display="block";
+}else{
+alert("خطا در ارسال سفارش");
+}
+}catch(err){
+alert("خطا در ارسال سفارش");
+}
+});
+</script></body>
 </html>
