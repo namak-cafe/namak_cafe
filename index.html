@@ -1,0 +1,69 @@
+<!DOCTYPE html><html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نمک کافه</title>
+<style>
+body{
+font-family:tahoma,sans-serif;
+background:#f8f2e8;
+padding:20px;
+}
+.container{
+max-width:600px;
+margin:auto;
+background:#fff;
+padding:25px;
+border-radius:20px;
+box-shadow:0 0 15px rgba(0,0,0,.1);
+}
+h1{
+text-align:center;
+color:#6f4e37;
+}
+input,select,textarea{
+width:100%;
+padding:12px;
+margin-top:5px;
+margin-bottom:15px;
+border:1px solid #ddd;
+border-radius:10px;
+box-sizing:border-box;
+}
+button{
+width:100%;
+padding:14px;
+background:#6f4e37;
+color:white;
+border:none;
+border-radius:10px;
+font-size:16px;
+cursor:pointer;
+}
+</style>
+</head>
+<body><div class="container">
+<h1>☕ نمک کافه</h1><label>نام مهمان *</label>
+<input type="text" required>
+
+<label>نوشیدنی *</label>
+<select required>
+
+<option>آیس لاته</option>
+<option>آمریکانو</option>
+<option>لاته</option>
+<option>کاپوچینو</option>
+<option>اسپرسو تک</option>
+<option>اسپرسو دبل</option>
+<option>چای</option>
+<option>آب جوش</option>
+<option>لانگ بلک</option>
+</select><label>تعداد *</label>
+<input type="number" min="1" value="1">
+
+<label>توضیحات</label>
+
+<textarea rows="4"></textarea><button>ثبت سفارش</button>
+
+</div></body>
+</html>
