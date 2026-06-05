@@ -4,50 +4,99 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>کافه نمک</title><style>
 body{
-font-family:tahoma,sans-serif;
-background:#f8f2e8;
-padding:20px;
+    font-family:tahoma,sans-serif;
+    background:linear-gradient(135deg,#f8f2e8,#efe4d2);
+    padding:20px;
+    margin:0;
 }
+
 .container{
-max-width:600px;
-margin:auto;
-background:#fff;
-padding:25px;
-border-radius:20px;
-box-shadow:0 0 15px rgba(0,0,0,.1);
+    max-width:600px;
+    margin:auto;
+    background:#fff;
+    padding:30px;
+    border-radius:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
 }
+
 h1{
-text-align:center;
-color:#6f4e37;
+    text-align:center;
+    color:#6f4e37;
+    font-size:32px;
+    margin-bottom:10px;
 }
+
+.welcome{
+    text-align:center;
+    color:#777;
+    margin-bottom:25px;
+    line-height:1.8;
+}
+
+label{
+    display:block;
+    margin-bottom:5px;
+    color:#444;
+    font-weight:bold;
+}
+
 input,select,textarea{
-width:100%;
-padding:12px;
-margin-top:5px;
-margin-bottom:15px;
-border:1px solid #ddd;
-border-radius:10px;
-box-sizing:border-box;
+    width:100%;
+    padding:12px;
+    margin-top:5px;
+    margin-bottom:15px;
+    border:1px solid #ddd;
+    border-radius:12px;
+    box-sizing:border-box;
+    font-size:15px;
 }
+
+input:focus,
+select:focus,
+textarea:focus{
+    outline:none;
+    border-color:#6f4e37;
+}
+
 button{
-width:100%;
-padding:14px;
-background:#6f4e37;
-color:white;
-border:none;
-border-radius:10px;
-font-size:16px;
-cursor:pointer;
+    width:100%;
+    padding:14px;
+    background:#6f4e37;
+    color:white;
+    border:none;
+    border-radius:12px;
+    font-size:17px;
+    cursor:pointer;
+    transition:.3s;
 }
+
+button:hover{
+    background:#5b3f2c;
+    transform:translateY(-2px);
+}
+
 #result{
-display:none;
-margin-top:20px;
-padding:15px;
-background:#e8f5e9;
-border-radius:10px;
-text-align:center;
+    display:none;
+    margin-top:20px;
+    padding:20px;
+    background:#e8f5e9;
+    border-radius:15px;
+    text-align:center;
+    line-height:2;
+    color:#2e7d32;
+    font-weight:bold;
 }
-</style></head><body><div class="container"><h1>☕ کافه نمک</h1><form id="orderForm"><label>نام مهمان *</label>
+
+.footer{
+    text-align:center;
+    margin-top:20px;
+    color:#999;
+    font-size:13px;
+}
+</style></head><body><div class="container"><h1>☕ کافه نمک</h1><div class="welcome">
+به کافه نمک خوش آمدید 🌿<br>
+لطفاً نوشیدنی مورد علاقه خود را انتخاب کنید.
+</div><form id="orderForm"><label>نام مهمان *</label>
 <input id="name" type="text" required>
 
 <label>نوشیدنی *</label>
@@ -72,10 +121,11 @@ text-align:center;
 </form><div id="result">
 ☕ سفارش شما ثبت شد<br><br>
 میزبان به‌زودی نوشیدنی شما را آماده می‌کند.<br><br>
-از حضور شما در کافه نمک سپاسگزاریم 🌿
-  <br>
+از حضور شما در کافه نمک سپاسگزاریم 🌿<br><br>
+با تشکر<br>
 کیان حسینائی
-</div>
+</div><div class="footer">
+کافه نمک ☕
 </div></div><script>
 document.getElementById("orderForm").addEventListener("submit", async function(e){
 e.preventDefault();
